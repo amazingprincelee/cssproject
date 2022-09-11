@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - Harvard WEbsite</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+
+            --primary-color: rgb(0, 0, 0);
+            --secondary-color: #f4f4f4;
+            --tertiary-color: #282c2f;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            
+        }
+
+        .nav-bar {
+            /* background-color: var(--secondary-color); */
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            margin: 0;
+            padding: 0;
+            
+
+        }
+
+        .logo {
+            width: 600px;
+            display: flex;
+            padding: 10px;
+        }
+
+        .search-bar {
+            border: solid 2px black;
+            width: 600px;
+            background-color: var(--tertiary-color);
+            display: none;
+            position: absolute;
+            top: 0;
+            left: -460px;
+        }
+
+        .search-bar a {
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+            color: var(--secondary-color);
+            font-size: 18px;
+            
+        }
+
+
+        .search-bar input {
+            border: solid 1px white;
+            background-color: var(--tertiary-color);
+            color: gray;
+            width: inherit;
+            height: 100px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .search-dropdown:hover .search-bar {
+            display: block;
+        }
+
+        .menu-container {
+            background-color: black;
+            color: var(--secondary-color);
+            display: none;
+            position: absolute;
+            top: 0;
+            left: -1100px;
+            width: 1400px;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        .menu-nav img {
+            margin: 0 0 0 60px;
+        } 
+
+        .menu-aside li {
+            list-style-type: none;
+            text-decoration: none;
+        }
+
+        .menu-aside li a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            padding: 10px;
+            font-size: 50px;
+            color: rgb(255, 255, 255);
+            margin: 20px;
+        }
+
+
+        .nav-menu {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            padding: 20px;
+            background-color: rgb(0, 0, 0);
+            position: relative;
+            
+            
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            font-size: 22px;
+            color: var(--secondary-color);
+
+        }
+
+        .menu-dropdown:hover .menu-container {
+            display: block;
+        }
+
+        .menu-aside {
+            width: 400px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 450px;
+        }
+
+        
+
+        .menu-footer {
+            border-top: 1px solid white;
+            padding: 40px;
+            
+        }
+
+        .menu-footer a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            padding: 20px;
+            font-weight: bold;
+        }
+
+        .header { 
+            background-image: url("images/hero.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            backdrop-filter:var(--tertiary-color) ;
+            height: 900px;
+            margin-top: -200px;
+            
+        }
+
+
+        @media screen and (max-width:900px){
+          .header {
+              display:none;
+          }
+          
+      }
+
+        .title p {
+            text-align: center;
+            color: white;
+            font-size: 6rem;
+            padding-top: 300px;
+            
+        }
+
+        .hero-content {
+            background-color: rgb(0, 0, 0, 0.5);
+            height: 800px;
+            display: flex;
+            
+        }
+
+        .hero-content h1 {
+            color: white;
+            font-size: 40px;
+            padding-left: 100px;
+            padding-top: 200px;
+        }
+
+        .school-event {
+            margin-left: 150px;
+            height: 300px;
+            border-left: solid 1px white;
+            color: white;
+            padding-left: 300px;
+            padding-top: 50px;
+            font-size: 20px;
+        }
+
+        .school-event a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .news-area {
+            background-color: black;
+            height: 700px;
+        }
+
+
+        
+        .container {
+          display: grid;
+          grid-template-columns: auto auto auto;
+          grid-gap: 10px;
+          color: white;
+          padding: 30px;
+      }
+
+      .container>div{
+          border: solid black 2px;
+          padding: 10px;
+      }
+
+      
+
+      .grid-one {
+
+          grid-area: 1/1/3/3;
+          color: white;
+      }
+
+      .grid-two {
+          display: flex;
+      }
+
+      .graduate-cards {
+        height: 500px;
+
+      }
+
+      .card-container {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          flex-wrap: wrap;
+      }
+
+      
+
+      .card p {
+          font-size: 20px;
+          padding: 20px;
+      }
+
+      .card-1 {
+          margin: 20px;
+
+      }
+
+      .card1 {
+          width: 350px;
+          height: 420px;
+          background-image: url(images/DSC_dexter.jpg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+      }
+
+      .title-dropdown {
+          color: white;
+          padding: 10px;
+          margin-top: -50px;
+         
+      }
+
+      .card-title {
+          padding-top: 40px;
+          height: 50px;
+      }
+
+
+      .title-dropdown h1 {
+          padding-left: 20px;
+          text-decoration: underline;
+          padding-bottom: -60px;
+          
+          margin-top: 80px;
+      }
+
+      .title-dropdown p {
+          margin: auto;
+          padding: 10px;
+          
+          width: 300px;
+      }
+
+
+      
+
+      .town {
+        background-color: black;
+        
+      }
+
+
+      .town-container {
+          display: flex;
+          padding: 30px;
+          margin-left: 100px;
+          
+      }
+
+      .town-flex {
+          display: flex;
+          justify-content: space-around;
+      }
+
+      .footer-container {
+          background-color: black;
+          height: 200px;
+          display: flex;
+          justify-content: space-around;
+          color: white;
+          
+          
+      }
+
+
+      @media screen and (max-width:600px){
+          .footer-container {
+              display: block;
+          }
+          
+      }
+
+      .footer-container a {
+          color: white;
+          text-decoration: none;
+      }
+
+
+      /* transition style area */
+
+
+#li {
+    margin-bottom: 10px;
+    margin-left: -38px;
+}
+
+.trans {
+    list-style-type: none;
+}
+
+.cool-link {
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bolder;
+    
+}
+
+.cool-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: rgb(255, 255, 255);
+    transition: width .4s;
+}
+
+.cool-link:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+
+
+
+.card1 div {
+
+    
+    height: 150px;
+    width: 300px;
+    margin: 25px;
+    margin-top: 250px;
+    position: absolute;
+    color: #f4f4f4;
+    padding: 5px;
+    
+}
+
+.card {
+    position: relative;
+}
+
+
+        
+
+
+    </style>
+
+
+
+
+</head>
+<body>
+
+    
+    <div class="nav-bar">
+        <div class="logo">
+            <img src="images/Harvard_University_logo.svg.png" alt="logo" width="200" height="53">
+            <ul style="list-style-type:square;"><a href="#" style="color: white ; text-decoration:none;">Latest COVID Information</a></ul>
+        </div>
+
+        <div class="nav-menu" style="border: #282c2f 2px solid; width: 300px;">
+            
+            <ul>
+                <li class="search-dropdown">
+                    <a class="sh" href="#">Search</a>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search Harvard University">
+                        <a href="#">QUICK LINK</a>
+                        <a href="#">Find a Person</a>
+                        <a href="#">A to Z index</a>
+                    </div>
+                </li>
+            </ul> 
+            
+            <ul>
+                <li class="menu-dropdown"> <a href="$">Menu</a>
+                
+                    <div class="menu-container">
+                        <div class="menu-nav">
+                            <img src="images/Harvard_University_logo.svg.png" alt="logo" width="200" height="53">
+                        </div>
+                        <div class="menu-aside">
+                            <ul>
+                                <li><a href="#">Academics</a></li>
+                                <li><a href="#">Campus</a></li>
+                                <li><a href="#">In Focus</a></li>
+                                <li><a href="#">Visit</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">News</a></li>
+                                
+                            </ul>
+                        </div>
+
+                        <div class="blank-space"></div>
+                               
+                        <div class="menu-footer">
+                            <a href="">Quick Links ></a>
+                            <a href="">A to Z Index </a>
+                            <a href="">Find a Person </a>
+                            <a href="">Events</a>
+                            <a href="">Media Relations</a>
+                            <a href="">Alumni</a>
+                            <a href="">Give Now</a>
+                        </div>
+                    </div>
+
+                    
+                
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+    <div class="header">
+
+        <div class="title">
+            <p>Celebrating the <br> Class of ’22</p>
+        </div>
+
+        <div class="hero-content">
+            <h1>Explore the ceremony</h1>
+            <div class="school-event">
+                <p>Looking for Commencement <br> information?</p>
+                <ul>
+                    <li><a href="#">2020 & 2021 Commencement</a></li>
+                    <li><a href="#">2022 Commencement</a></li>
+                    <li><a href="#">Livestream</a></li>
+                    <li><a href="#">School events</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="news-area">
+
+        <div class="container">
+            <div class="grid-one">
+               <img class="lady-image" src="images/lady.webp" alt="vc-photo">
+            </div>
+            
+            <div class="grid-two" style="border-bottom: solid 2px white;">
+                <div style="width: 300px ;">
+                    <ul class="trans">
+                        <li id="li"><a class="cool-link" href="#">Class day</a></li>
+                    </ul>
+                <p style="font-size: 19px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium in, iusto neque quo aspernatur vel ut laborum et ducimus animi inventore,</p>
+                </div>
+
+                <div>
+                    <img src="images/smallpix1.webp" alt="pix" width="130" height="100">
+                </div>
+            </div>
+            
+            <div class="grid-two" style="border-bottom: solid 2px white;">
+                <div style="width: 300px ;">
+                    <ul class="trans">
+                        <li id="li"><a class="cool-link" href="#">Chief marshal</a></li>
+                    </ul>
+                <p style="font-size: 19px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium in, iusto neque quo aspernatur vel ut laborum et ducimus animi inventore,</p>
+                </div>
+
+                <div>
+                    <img src="images/smallpix2.webp" alt="pix" width="130" height="100">
+                </div>
+            </div>
+            
+            
+            
+           
+        </div>
+
+
+
+
+
+
+        <h1 style="color:rgb(255, 255, 255) ; padding-left: 20px;">COmmencement Speaker</h1>
+        <p style="color:rgb(255, 255, 255); padding-left: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, illum.</p>
+
+
+    </div>
+    <div class="graduate-cards">
+        <h1 style="font-size:40px; padding-left: 80px">Meet the graduates</h1>
+    
+        <div class="card-container">
+
+        <div class="card">
+            <div class="card1">
+
+                <div>
+
+                    <h1 style="padding-left: 20px ; margin-top: -20px;">Dexter Moore Jr.</h1>
+                    <p style="margin-top: -40px ;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui consequatur eveniet exercitationem maxime reprehenderit .</p>
+                    
+                </div>
+                <!-- <div class="card-title" style="border: 2px white solid ; padding-top: 50px; color:#f4f4f4 ">
+                    
+                    <h1>Dexter Moore Jr.</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui consequatur eveniet exercitationem maxime reprehenderit .</p>
+                   
+                </div> -->
+            </div>
+            <!-- <img src="images/DSC_dexter.jpg" alt="photo" width="350" height="420"> -->
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        <div class="card">
+            
+            <img src="images/marry.jpg" alt="photo" width="350" height="420">
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        <div class="card">
+            <img src="images/angelina.webp" alt="photo" width="350" height="420">
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        <div class="card">
+            <img src="images/DSC_dexter.jpg" alt="photo" width="350" height="420">
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        <div class="card">
+            <img src="images/marry.jpg" alt="photo" width="350" height="420">
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        <div class="card">
+            <img src="images/angelina.webp" alt="photo" width="350" height="420">
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        
+
+        
+
+    </div>
+
+    <div class="town">
+
+        <div class="town-container">
+            <div class="card-1">
+                <img src="images/12345.jpg" alt="in town" width="500" height="500">
+            </div>
+
+            <div class="card-1">
+                <img src="images/54321.webp" alt="intown" width="500" height="500">
+
+            </div>
+        </div>
+
+        <div class="town-flex">
+            <div class="card">
+                <img src="images/DSC_dexter.jpg" alt="photo" width="350" height="420">
+                <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+            </div>
+    
+            <div class="card">
+                <img src="images/marry.jpg" alt="photo" width="350" height="420">
+                <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+            </div>
+    
+            <div class="card">
+                <img src="images/angelina.webp" alt="photo" width="350" height="420">
+                <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="graduate-cards">
+        <h1 style="font-size:40px; padding-left: 80px">Meet the graduates</h1>
+    
+        <div class="card-container">
+
+        <div class="card">
+            <img src="images/DSC_dexter.jpg" alt="photo" width="350" height="420">
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        <div class="card">
+            <img src="images/marry.jpg" alt="photo" width="350" height="420">
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        <div class="card">
+            <img src="images/angelina.webp" alt="photo" width="350" height="420">
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        <div class="card">
+            <img src="images/DSC_dexter.jpg" alt="photo" width="350" height="420">
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        <div class="card">
+            <img src="images/marry.jpg" alt="photo" width="350" height="420">
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        <div class="card">
+            <img src="images/angelina.webp" alt="photo" width="350" height="420">
+            <p>Read more stories from the <br> Graduate School of Arts and Sciences</p>
+        </div>
+
+        
+
+        
+
+    </div>
+
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="card">
+                <h1>Security & Brand</h1>
+                <ul>
+                    <li><a href="#">Report Copyright Infringement</a></li>
+                    <li><a href="#">Report Security Issue</a></li>
+                    <li><a href="#">Trademark Notice</a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h1>Security & Brand</h1>
+                <ul>
+                    <li><a href="#">Report Copyright Infringement</a></li>
+                    <li><a href="#">Report Security Issue</a></li>
+                    <li><a href="#">Trademark Notice</a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h1>Security & Brand</h1>
+                <ul>
+                    <li><a href="#">Report Copyright Infringement</a></li>
+                    <li><a href="#">Report Security Issue</a></li>
+                    <li><a href="#">Trademark Notice</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="footer-container">
+
+            <div class="card">
+               <p style="color:white; padding-top: 50px; font-size: 14px;">© 2022 The President and Fellows of Harvard College</p>
+            </div>
+
+            <div class="card" style="padding-left: -30px ;">
+               <img src="images/Harvard_University_logo.svg.png" alt="school logo" width="200" height="80" >
+            </div>
+
+            <div class="card" style="padding-top: 50px;">
+                
+                
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Instagram</a>
+                
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+</body>
+</html>
